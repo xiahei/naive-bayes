@@ -15,6 +15,8 @@ classname = sys.argv[1]
 import time 
 start = time.time()
 
+#tf*idf：如果某个词在某一类中出现的频率高，但在其他类中很少出现，则该词具有较好的类别区分能力
+
 #tf  词频 = 某个词在文章中出现的总次数/文章的总词数
 #这边计算了每个类中每个词的词频，而不是对应的文档中
 inputname = 'integ/'+classname+'_bag.txt'   #'integ/ent_bag.txt'
@@ -50,11 +52,11 @@ fr.close()
 output.close()
 print 'tf finished'
 
-#idf = log[(文档总数+1)/包含该词的文档数]
+#idf = log(文档总数/包含该词的文档数)
 doc_num = 113673 #文档总数
 #十个类词集保存至内存
-label = ['ent','fin','spo','tec','mil','soc','lif','cul','car','hel']
-#label = ['ent']
+#label = ['ent','fin','spo','tec','mil','soc','lif','cul','car','hel']
+label = ['ent']
 print 'load list...'
 word_dict = {}
 for c in label:
@@ -78,7 +80,7 @@ for line in fr.readlines():
     word = line.strip().split('\t')[0]
     if word in word_dict:
         doc_cnt = word_dict[word]
-    idf = math.log(float(doc_num+1)/doc_cnt)
+    idf = math.log(float(doc_num)/doc_cnt)
     output.write(word + '\t' + str(idf) + '\n')
 fr.close()
 output.close()

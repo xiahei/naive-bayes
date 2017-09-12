@@ -10,8 +10,8 @@ import time
 start = time.time()
 word_dict = dict()
 
-#classname = ['ent']
-classname = ['ent','fin','spo','tec','mil','soc','lif','cul','car','hel']
+classname = ['ent']
+#classname = ['ent','fin','spo','tec','mil','soc','lif','cul','car','hel']
 for name in classname:
     filename = 'integ/'+name+'.txt'
     fr = open(filename,'r')

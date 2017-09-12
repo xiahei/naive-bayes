@@ -1,5 +1,5 @@
 # naive-bayes
-#这是一个自己写的朴素贝叶斯十分类代码
+#这是一个手动实现的朴素贝叶斯十分类代码
 
 1、分词
 对每个类别下的文件进行分词,使用jieba分词提取出名词词性的词(速度慢)
@@ -11,7 +11,7 @@ rmstopwords.py
 将每个类别的文件进行整合后，生成该类别对应的词袋
 integ.py bagwords.py
 4、特征选择
-为了方便计算idf值，创建了numofwords.py
+为了方便计算idf值，创建了numofdocs.py
 计算每个词的tf-idf值，选取具有代表性的词生成最终的词典:tfidf.py
 选取特征作为最终词典:select.py
 5、将训练集和测试集每个文档转换为对应向量（根据最终词典final_dict.txt）
